@@ -29,8 +29,8 @@ class Calculator
         if (count($expressionsArray) == 2 && $expressionsArray[1] === self::SQUARE_ROOT_OPERATOR) {
             return $this->sqrt((float)$expressionsArray[0]);
         } elseif (count($expressionsArray) == 3) {
-            list($a, $operator, $b) = $expressionsArray;
-            return $this->performBasicOperation((float)$a, $operator, (float)$b);
+            list($number1, $operator, $number2) = $expressionsArray;
+            return $this->performBasicOperation((float)$number1, $operator, (float)$number2);
         } else {
             throw new \InvalidArgumentException('Invalid input');
         }
@@ -39,25 +39,25 @@ class Calculator
     /**
      * Map and perform operation
      *
-     * @param float $a
+     * @param float $number1
      * @param string $operator
-     * @param float $b
+     * @param float $number2
      * @return float
      */
-    private function performBasicOperation(float $a, string $operator, float $b): float
+    private function performBasicOperation(float $number1, string $operator, float $number2): float
     {
         switch ($operator) {
             case '+':
-                $result = $this->add($a, $b);
+                $result = $this->add($number1, $number2);
                 break;
             case '-':
-                $result = $this->subtract($a, $b);
+                $result = $this->subtract($number1, $number2);
                 break;
             case '*':
-                $result = $this->multiply($a, $b);
+                $result = $this->multiply($number1, $number2);
                 break;
             case '/':
-                $result = $this->divide($a, $b);
+                $result = $this->divide($number1, $number2);
                 break;
             default:
                 throw new \InvalidArgumentException('Invalid operator');
@@ -70,67 +70,67 @@ class Calculator
     /**
      * Addition
      *
-     * @param float $a
-     * @param float $b
+     * @param float $number1
+     * @param float $number2
      * @return float
      */
-    private function add(float $a, float $b): float
+    private function add(float $number1, float $number2): float
     {
-        return $a + $b;
+        return $number1 + $number2;
     }
 
     /**
      * Subtraction
      *
-     * @param float $a
-     * @param float $b
+     * @param float $number1
+     * @param float $number2
      * @return float
      */
-    private function subtract(float $a, float $b): float
+    private function subtract(float $number1, float $number2): float
     {
-        return $a - $b;
+        return $number1 - $number2;
     }
 
     /**
      * Multiplication
      *
-     * @param float $a
-     * @param float $b
+     * @param float $number1
+     * @param float $number2
      * @return float
      */
-    private function multiply(float $a, float $b): float
+    private function multiply(float $number1, float $number2): float
     {
-        return $a * $b;
+        return $number1 * $number2;
     }
 
     /**
      * Division
      *
-     * @param float $a
-     * @param float $b
+     * @param float $number1
+     * @param float $number2
      * @return float
      */
-    private function divide(float $a, float $b): float
+    private function divide(float $number1, float $number2): float
     {
         // Throw an exception if the divisor is zero
-        if ($b == self::INPUT_ZERO) {
+        if ($number2 == self::INPUT_ZERO) {
             throw new \DivisionByZeroError('Division by zero is not allowed.');
         }
-        return $a / $b;
+        return $number1 / $number2;
     }
 
     /**
      * Square root operation
      *
-     * @param float $a
+     * @param float $number1
      * @return float
      */
-    private function sqrt(float $a): float
+    private function sqrt(float $number1): float
     {
         // Throw an exception if the input is less than zero
-        if ($a < self::INPUT_ZERO) {
+        if ($number1 < self::INPUT_ZERO) {
             throw new \InvalidArgumentException('Invalid input for square root function');
         }
-        return sqrt($a);
+        return sqrt($number1);
     }
 }

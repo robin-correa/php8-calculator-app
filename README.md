@@ -14,9 +14,9 @@ Welcome to the PHP 8 (8.2.5) Calculator App! This application provides basic ari
 
 1. **Clone the repository:**
 
-   ```sh
-   git clone https://github.com/robin-correa/php8-calculator-app.git
-   ```
+```sh
+git clone https://github.com/robin-correa/php8-calculator-app.git
+```
 
 2. **Install dependencies (PHPUnit)**
 ```sh
@@ -52,7 +52,7 @@ Note: The application will prompt you to enter calculations. It will continue ru
     - Output2: DivisionByZeroError (Error exception)
 - Square root calculation (with validation for negative inputs)
     - Input1: 9 sqrt
-    - Output2: 3
+    - Output1: 3
     - Input2: -9 sqrt
     - Output2: Error: Invalid input for square root function
 

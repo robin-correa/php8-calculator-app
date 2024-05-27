@@ -15,12 +15,12 @@ class CalculatorTest extends TestCase
 
     public function testAddition(): void
     {
-        $this->assertEquals(7.0, $this->calculator->calculate('5 + 2'));
+        $this->assertEquals(32, $this->calculator->calculate('11 + 21'));
     }
 
     public function testSubtraction(): void
     {
-        $this->assertEquals(3.0, $this->calculator->calculate('5 - 2'));
+        $this->assertEquals(10, $this->calculator->calculate('21 - 11'));
     }
 
     public function testMultiplication(): void
@@ -41,13 +41,13 @@ class CalculatorTest extends TestCase
     public function testInvalidOperator(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->calculator->calculate('5 ^ 2');
+        $this->calculator->calculate('11 ^ 21');
     }
 
     public function testDivisionByZero(): void
     {
         $this->expectException(DivisionByZeroError::class);
-        $this->calculator->calculate('5 / 0');
+        $this->calculator->calculate('21 / 0');
     }
 
     public function testNegativeSquareRoot(): void
